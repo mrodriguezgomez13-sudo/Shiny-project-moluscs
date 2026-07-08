@@ -2,7 +2,7 @@
 
 **Authors:** Mònica Rodríguez Gómez & Celia Vinagre Izquierdo  
 **Course:** Anàlisi de dades òmiques — UOC  
-**Date:** July 2026  
+**Date:** January 2026  
 **Data source:** [OBIS](https://obis.org/) (Ocean Biodiversity Information System)
 
 ---
