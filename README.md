@@ -1,43 +1,99 @@
-# Interactive Visualization of Mediterranean Bivalve Mollusks
+# Interactive Visualization of Mediterranean Bivalve Mollusks (OBIS)
 
-[![Shiny](https://img.shields.io/badge/Shiny-1.8.0-blue.svg)](https://shiny.rstudio.com/)
-[![R](https://img.shields.io/badge/R-4.3.0-blue.svg)](https://www.r-project.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![OBIS](https://img.shields.io/badge/Data-OBIS-green.svg)](https://obis.org/)
+**Authors:** Mònica Rodríguez Gómez & Celia Vinagre Izquierdo  
+**Course:** Anàlisi de dades òmiques — UOC  
+**Date:** July 2026  
+**Data source:** [OBIS](https://obis.org/) (Ocean Biodiversity Information System)
 
-## 📋 Description
+---
 
-Interactive Shiny application for exploring occurrence records of three bivalve mollusk species in the Mediterranean Sea:
+# Mediterranean bivalve mollusk visualization
 
-- 🐚 ***Mytilus galloprovincialis*** (Mediterranean mussel)
-- 🐚 ***Ruditapes decussatus*** (Grooved carpet shell)  
-- 🐚 ***Pecten jacobaeus*** (Mediterranean scallop)
+This project provides an interactive Shiny application for exploring occurrence records of three bivalve mollusk species in the Mediterranean Sea:
 
-Data comes from **OBIS** (Ocean Biodiversity Information System) and was downloaded using the `robis` package.
+- ***Mytilus galloprovincialis*** (Mediterranean mussel)
+- ***Ruditapes decussatus*** (Grooved carpet shell)  
+- ***Pecten jacobaeus*** (Mediterranean scallop)
 
-## Study Objectives
+The data is **not included** in this repository due to file size and dynamic nature. It is downloaded directly from OBIS using the `robis` package when running the application or analysis scripts.
 
-- Explore the spatial distribution of the three selected species
-- Compare depth patterns between species
-- Analyze ecological variability based on environmental variables
-- Interactively visualize georeferenced data
+The project includes:
 
-## App Features
+- **Interactive Shiny app** with dynamic filters by species, year range, and depth
+- **Exploratory data analysis** (descriptive statistics, boxplots, histograms, spatial maps)
+- **Inferential analysis** (ANOVA, Tukey HSD post-hoc tests, probability distributions)
+- **Machine learning** (PCA and k-means clustering to identify ecological niches)
+- **Simulations** (normal distribution modeling and Monte Carlo simulation)
+- **Complete RMarkdown report** with all analyses and interpretations
 
-- ** Interactive Map**: Visualize the geographic distribution of records
-- ** Depth Histogram**: Analyze bathymetric distribution
-- ** Dynamic Filters**: Select by species, year range, and depth
-- ** Data Table**: View filtered records (if added)
+## Repository contents
 
-## Installation and Usage
+This repository contains **two main RMarkdown documents**:
 
-### Prerequisites
-- R (>= 4.0.0)
-- RStudio (recommended)
+### 1. `PEC4_shiny.Rmd` — Shiny application code
 
-### Installation
+This file contains the **interactive Shiny application** code. It includes:
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/moluscos-shiny.git
-cd moluscos-shiny
+- The complete Shiny UI and server logic
+- Data download from OBIS using `robis`
+- Real-time filtering by species, year range, and depth
+- Interactive map of occurrences
+- Interactive depth histogram
+- Dynamic updates based on user input
+
+**How to use:** Open this file in RStudio and click **"Run Document"** to launch the interactive app.
+
+### 2. `PEC4_mo.Rmd` — Complete analysis report
+
+This file contains the **full research report** with all statistical analyses, including:
+
+- **Context and objectives** of the study
+- **Data description** and preprocessing steps
+- **Exploratory data analysis** with descriptive statistics and visualizations
+- **Inferential statistics**:
+  - ANOVA tests for depth, SST, and SSS differences between species
+  - Tukey HSD post-hoc comparisons
+  - Probability calculations (binomial, normal, Poisson distributions)
+- **Simulations** of SST using Monte Carlo methods
+- **Machine learning**:
+  - Principal Component Analysis (PCA)
+  - K-means clustering for ecological niche identification
+- **Conclusions** and ecological interpretation of results
+- **Interactive visualization** section with Shiny app screenshots
+
+**How to use:** Open this file in RStudio and knit to HTML to generate the complete report.
+
+## Main results
+
+- Clear differences in depth distribution between species (*P. jacobaeus* > *M. galloprovincialis* > *R. decussatus*)
+- Significant differences in SST and SSS between species (ANOVA p < 0.001)
+- *Mytilus galloprovincialis* shows the widest geographic distribution
+- *Pecten jacobaeus* forms a distinct ecological cluster, indicating a more specialized niche
+- PCA and clustering reveal that *Ruditapes decussatus* behaves as a generalist species
+
+## Requirements
+
+Open R and run:
+
+```r
+# Install CRAN packages
+install.packages(c(
+  "shiny",
+  "dplyr",
+  "ggplot2",
+  "purrr",
+  "tidyr",
+  "knitr",
+  "GGally",
+  "factoextra",
+  "prettydoc"
+))
+
+# Install BiocManager if needed
+if (!require("BiocManager")) install.packages("BiocManager")
+
+# Install Bioconductor packages
+BiocManager::install(c(
+  "robis",
+  "FactoMineR"
+))
