@@ -1,6 +1,6 @@
 # =============================================================================
 # Shiny Application for Bivalve Mollusk Visualization
-# Dataset: 
+# Dataset: OBIS
 # Author: Mònica Rodríguez Gómez
 # Date: January 2026
 # =============================================================================
